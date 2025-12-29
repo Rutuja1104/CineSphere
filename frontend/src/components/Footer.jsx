@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { footerStyles } from "../assets/dummyStyles";
 import {
+  ArrowUp,
   Clapperboard,
   Facebook,
   Film,
@@ -167,7 +168,7 @@ const Footer = () => {
                 <div className={footerStyles.contactIconContainer}>
                   <Mail className={footerStyles.contactIcon} />
                 </div>
-                <span className={footerStyles.contactText}>contact@hexagonsservices.com</span>
+                <span className={footerStyles.contactText}>contact@rutuja.com</span>
               </li>
               <li className={footerStyles.contactItem}>
                 <div className={footerStyles.contactIconContainer}>
@@ -179,30 +180,46 @@ const Footer = () => {
                 <div className={footerStyles.contactIconContainer}>
                   <MapPin className={footerStyles.contactIcon} />
                 </div>
-                <span className={footerStyles.contactText}>Lucknow, India</span>
+                <span className={footerStyles.contactText}>Pune, India</span>
               </li>
             </ul>
           </div>
-
-          {/* Divider */}
-          <div className={footerStyles.divider} >
-            <div className={footerStyles.dividerIconContainer}>
-              <Film className={footerStyles.dividerIcon} />
-            </div>
+        </div>
+        {/* Divider */}
+        <div className={footerStyles.divider} >
+          <div className={footerStyles.dividerIconContainer}>
+            <Film className={footerStyles.dividerIcon} />
           </div>
+        </div>
 
-          <div className={footerStyles.bottomBar}>
-            <div className={footerStyles.designedBy}>
-              <span className={footerStyles.designedByText}>
-                Designed by
-              </span>
-              <a href="https://rutuja1104.github.io/carrer-highlights/" className={footerStyles.designedByHighlight}>Hexagons Services</a>
-            </div>
-
+        <div className={footerStyles.bottomBar}>
+          <div className={footerStyles.designedBy}>
+            <span className={footerStyles.designedByText}>
+              Designed by
+            </span>
+            <a href="https://rutuja1104.github.io/carrer-highlights/" className={footerStyles.designedByLink} target="_blank" rel="noopener noreferrer">Rutuja</a>
           </div>
-
+          <div className={footerStyles.policyLinks}>
+            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item, index) => (
+              <a
+                key={index}
+                href="#"
+                className={footerStyles.policyLink}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+      {isVisible && (<button
+        onClick={scrollToTop}
+        className={footerStyles.scrollTopButton}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className={footerStyles.scrollTopIcon} />
+      </button>)}
+      <style >{footerStyles.customCSS}</style>
     </footer>
   );
 };
