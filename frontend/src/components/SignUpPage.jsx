@@ -2,7 +2,19 @@ import React, { useState } from "react";
 import { signUpStyles, signUpCSS } from "../assets/dummyStyles";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ArrowLeft, Calendar, Clapperboard, Eye, EyeOff, Lock, Mail, Phone, Ticket, User } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Clapperboard,
+  Eye,
+  EyeOff,
+  Film,
+  Lock,
+  Mail,
+  Phone,
+  Ticket,
+  User,
+} from "lucide-react";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -67,7 +79,7 @@ const SignUpPage = () => {
 
   const goBack = () => {
     window.history.back();
-  }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,8 +103,8 @@ const SignUpPage = () => {
     }
     console.log("form data", {
       ...formData,
-      password: '*****' + formData.password.slice(-2),
-    })
+      password: "*****" + formData.password.slice(-2),
+    });
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -109,7 +121,7 @@ const SignUpPage = () => {
       //   password: "",
       // });
     }, 2000);
-  }
+  };
 
   return (
     <div className={signUpStyles.container}>
@@ -149,23 +161,25 @@ const SignUpPage = () => {
           <span className={signUpStyles.backText}>Back</span>
         </button>
         <div className={signUpStyles.card}>
-          <div className={signUpStyles.cardHeader}>
-
-          </div>
+          <div className={signUpStyles.cardHeader}></div>
           <div className={signUpStyles.cardContent}>
             <div className={signUpStyles.header}>
               <div className={signUpStyles.headerFlex}>
                 <Ticket className={signUpStyles.headerIcon} size={32} />
                 <h2 className={signUpStyles.headerTitle}>JOIN OUR CINEMA</h2>
               </div>
-              <p className={signUpStyles.headerSubtitle}>Create your account and start your cinematic journey with us</p>
+              <p className={signUpStyles.headerSubtitle}>
+                Create your account and start your cinematic journey with us
+              </p>
             </div>
-            <form className={signUpStyles.form}>
+            <form className={signUpStyles.form} onSubmit={handleSubmit}>
               {/* Form fields will go here in the future */}
               <div className={signUpStyles.formGrid}>
                 {/* Form fields will go here in the future */}
                 <div>
-                  <label htmlFor="fullName" className={signUpStyles.field}>Full Name</label>
+                  <label htmlFor="fullName" className={signUpStyles.field}>
+                    Full Name
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type="text"
@@ -173,17 +187,26 @@ const SignUpPage = () => {
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.fullName ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.fullName
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="Enter your full name"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <User size={18} />
                     </div>
-                    {errors.fullName && <p className={signUpStyles.errorText}>{errors.fullName}</p>}
+                    {errors.fullName && (
+                      <p className={signUpStyles.errorText}>
+                        {errors.fullName}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="username" className={signUpStyles.field}>Username</label>
+                  <label htmlFor="username" className={signUpStyles.field}>
+                    Username
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type="text"
@@ -191,19 +214,28 @@ const SignUpPage = () => {
                       name="username"
                       value={formData.username}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.username ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.username
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="Choose your user name"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <Clapperboard size={18} />
                     </div>
-                    {errors.username && <p className={signUpStyles.errorText}>{errors.username}</p>}
+                    {errors.username && (
+                      <p className={signUpStyles.errorText}>
+                        {errors.username}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
               <div className={signUpStyles.formGrid}>
                 <div>
-                  <label htmlFor="email" className={signUpStyles.field}>EMAIL ADDRESS</label>
+                  <label htmlFor="email" className={signUpStyles.field}>
+                    EMAIL ADDRESS
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type="text"
@@ -211,17 +243,24 @@ const SignUpPage = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.email ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.email
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="your@gmail.com"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <Mail size={18} />
                     </div>
-                    {errors.email && <p className={signUpStyles.errorText}>{errors.email}</p>}
+                    {errors.email && (
+                      <p className={signUpStyles.errorText}>{errors.email}</p>
+                    )}
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="phone" className={signUpStyles.field}>PHONE NUMBER</label>
+                  <label htmlFor="phone" className={signUpStyles.field}>
+                    PHONE NUMBER
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type="text"
@@ -229,19 +268,26 @@ const SignUpPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.phone ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.phone
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="+1 (555) 123-4567"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <Phone size={18} />
                     </div>
-                    {errors.phone && <p className={signUpStyles.errorText}>{errors.phone}</p>}
+                    {errors.phone && (
+                      <p className={signUpStyles.errorText}>{errors.phone}</p>
+                    )}
                   </div>
                 </div>
               </div>
               <div className={signUpStyles.formGrid}>
                 <div>
-                  <label htmlFor="birthDate" className={signUpStyles.field}>DATE OF BIRTH</label>
+                  <label htmlFor="birthDate" className={signUpStyles.field}>
+                    DATE OF BIRTH
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type="date"
@@ -249,17 +295,26 @@ const SignUpPage = () => {
                       name="birthDate"
                       value={formData.birthDate}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.birthDate ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.birthDate
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="MM/DD/YYYY"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <Calendar size={18} />
                     </div>
-                    {errors.birthDate && <p className={signUpStyles.errorText}>{errors.birthDate}</p>}
+                    {errors.birthDate && (
+                      <p className={signUpStyles.errorText}>
+                        {errors.birthDate}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="password" className={signUpStyles.field}>PASSWORD</label>
+                  <label htmlFor="password" className={signUpStyles.field}>
+                    PASSWORD
+                  </label>
                   <div className={signUpStyles.inputContainer}>
                     <input
                       type={showPassword ? "text" : "password"}
@@ -267,27 +322,54 @@ const SignUpPage = () => {
                       name="password"
                       value={formData.password}
                       onChange={handleChange}
-                      className={`${signUpStyles.input.base} ${errors.password ? signUpStyles.input.error : signUpStyles.input.normal} ${signUpStyles.inputWithIcon}`}
+                      className={`${signUpStyles.input.base} ${errors.password
+                        ? signUpStyles.input.error
+                        : signUpStyles.input.normal
+                        } ${signUpStyles.inputWithIcon}`}
                       placeholder="Create a password"
                     />
                     <div className={signUpStyles.inputIcon}>
                       <Lock size={18} />
                     </div>
-                    <button type="button" className={signUpStyles.passwordToggle} onClick={() => setShowPassword(!showPassword)}>
+                    <button
+                      type="button"
+                      className={signUpStyles.passwordToggle}
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
-                    {errors.password && <p className={signUpStyles.errorText}>{errors.password}</p>}
+                    {errors.password && (
+                      <p className={signUpStyles.errorText}>
+                        {errors.password}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
               <button
                 type="submit"
-                className={signUpStyles.submitButton}
+                className={`${signUpStyles.submitButton.base} ${isLoading ? signUpStyles.submitButton.loading : ""
+                  }`}
                 disabled={isLoading}
               >
-                {isLoading ? "Signing Up..." : "Sign Up"}
+                {isLoading ? <div className={signUpStyles.submitContent}>
+                  <div className={signUpStyles.loadingSpinner}></div>
+                  CREATING YOUR ACCOUNT...
+                </div> : <div className={signUpStyles.submitContent}>
+                  <Film className={signUpStyles.submitIcon} size={20} />
+                  <span className="font-cinema">CREATE CINEMA ACCOUNT</span>
+                </div>}
               </button>
             </form>
+
+            <div className={signUpStyles.loginContainer}>
+              <p className={signUpStyles.loginText}>
+                Already have an account?<a href="/login" className={signUpStyles.loginLink}> Sign in to your account</a>
+              </p>
+
+
+            </div>
+
           </div>
         </div>
       </div>
