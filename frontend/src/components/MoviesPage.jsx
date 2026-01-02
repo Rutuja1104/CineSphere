@@ -26,8 +26,23 @@ const MoviesPage = () => {
     { id: 'adventure', name: 'Adventure' }
   ];
   return (
-    <div>
-
+    <div className={moviesPageStyles.container}>
+      <section className={moviesPageStyles.categories}>
+        <div className={moviesPageStyles.categoriesContainer}>
+          <div className={moviesPageStyles.categoriesFlex}>
+            {categories.map(category => (
+              <button
+                key={category.id}
+                className={`${moviesPageStyles.categoryButton.base} ${activeCategory === category.id ? moviesPageStyles.categoryButton.active : moviesPageStyles.categoryButton.Inactive}`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.name}
+              </button>
+            ))}
+            
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
